@@ -62,7 +62,10 @@ const actorsController = {
         Actors
         .destroy({where: {id: actorId}, force: true}) // force: true es para asegurar que se ejecute la acción
         .then((response) => {
-            return res.json(response)
+            return res.status(200).json({
+                status: 200,
+                msg: "Actor deleted succesfully"
+            })
         })
         .catch(error => res.status(500).json(error)) 
     }

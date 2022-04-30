@@ -6,7 +6,7 @@ const genresController = {
     'list': (req, res) => {
         db.Genre.findAll()
             .then(genres => {
-                res.status(200).json({
+                let response = {
                     meta: {
                         status: 200,
                         total: genres.length,
@@ -15,7 +15,8 @@ const genresController = {
                     data: {
                         genres
                     }
-                })
+                }
+                res.status(200).json(response)
             })
     },
     'detail': (req, res) => {
